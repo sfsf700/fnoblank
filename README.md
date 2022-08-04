@@ -1,24 +1,61 @@
 # README
+# テーブル設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## users テーブル
 
-Things you may want to cover:
+| Column             | Type    | Options                   |
+| ------------------ | ------  | ------------------------- |
+| nickname           | string  | null: false               |
+| email              | string  | null: false, unique: true |
+| encrypted_password | string  | null: false               |
+| profile            | string  | null: false               |
+| history_id         | integer | null: false               |
+| field_id           | integer |                           |
+| fish_name          | string  |                           |
 
-* Ruby version
+## Association
+ has_many :fishings, dependent: :destroy
+ has_many :comments
+ has_many :favorite
 
-* System dependencies
+##  fishingsテーブル
 
-* Configuration
+| Column      | Type       | Options                        |
+| ----------- | ---------- | ------------------------------ |
+| day         | date       | null: false                    |
+| name        | string     | null: false                    |
+| size        | integer    | null: false                    |
+| count       | integer    | null: false                    |
+| field_id    | integer    | null: false                    |
+| memo        | string     |                                |
+| user        | references | null: false, foreign_key: true |
 
-* Database creation
+## Association
+ belongs_to :user
+ has_many :comments
+ has_many :favorite
+ 
 
-* Database initialization
+## comments テーブル
 
-* How to run the test suite
+| Column        | Type       | Options                        |
+| ------------- | ---------- | ------------------------------ |
+| text          | string     | null: false                    |
+| user          | references | null: false, foreign_key: true |
+| fishing       | references | null: false, foreign_key: true |
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
+## Association
+belongs_to :user
+belongs_to :fishing
 
-* ...
+## favorites テーブル
+
+| Column      | Type       | Options                        |
+| ----------- | ---------- | ------------------------------ |
+| user        | references | null: false, foreign_key: true |
+| fishing     | references | null: false, foreign_key: true |
+
+## Association
+belongs_to :user
+belongs_to :fishing
