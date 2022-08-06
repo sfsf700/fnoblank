@@ -1,0 +1,38 @@
+<%= render "shared/header" %>
+
+<div class='main'>
+  <div class='title-contents'>
+    <h2 class='service-title'>
+      ノーブランクアングラーズ
+    </h2>
+    <p class='service-explain'>
+      〜ボウズになりたくないそんな貴方へ〜
+    </p>
+  </div>
+
+  <div class='fishing-contents'>
+    <div class="fishing-news" >
+      新着釣果情報
+    </div>
+    <ul class="fishing-list">
+      <% @fishings.each do |fishing| %>
+      <li class='fish-list'>
+        <%= link_to "#" do %>
+        <div class='fish-img-content'>
+          <%= image_tag fishing.image, class: "fishing-img" if fishing.image.attached? %>
+          <div class='fish-name-info'>
+            <h3 class='item-name'>
+              <%= fishing.name %>
+            </h3>
+              <div class='item-price'>
+                <%= fishing.field.name %><br><%= fishing.day %>
+              </div>
+          </div>  
+        </div>
+      <% end %>
+      </li>
+    <% end %>
+    </ul>  
+  </div>
+</div>
+<%= render "shared/footer" %>

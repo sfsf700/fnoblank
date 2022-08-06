@@ -1,0 +1,73 @@
+<%= render 'shared/footer' %>
+<div class="items-sell-contents">
+  <div class= 'fishing-main'>
+    <h2 class= 'fishing-info'>釣果情報入力</h2>
+    <%= form_with model: @fishing, local: true do |f| %>
+    <%#= render 'shared/error_messages', model: f.object %>
+    
+      <div class="fishing-imag">
+        <div class="weight-bold-text">
+          商品画像
+          <span class="indispensable">必須</span>
+        </div>
+        <div class="click-upload">
+          <p>
+            クリックしてファイルをアップロード
+          </p>
+          <%= f.file_field :image, id:"fishing-image" %>
+        </div>
+      </div>  
+
+      <div class="fish-date">   
+        <div class="weight-bold-text">
+          魚の名前
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.text_field :name, id:"fishing-image" %>
+        
+        <div class="weight-bold-text">
+          コメント
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.text_area :memo, class:"fishings-text", id:"item-name" %>
+      
+      
+      
+      
+        <div class="weight-bold-text">
+          釣れた日
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.date_field :day, class:"fishing-box", id:"item-name" %>
+   
+        <div class="weight-bold-text">
+          サイズ
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.text_field :size, class:"fishing-box", id:"item-info" %>
+      
+        <div class="weight-bold-text">
+          釣れた数
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.text_field :count, class:"fishing-box", id:"item-name" %>
+        
+        <div class="weight-bold-text">
+          エリア
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.collection_select(:field_id, Field.all, :id, :name, {}, {class:"fishing-box", id:"item-category"}) %>
+      </div>
+      <div class="sell-btn-contents">
+        <%= f.submit "出品する" ,class:"sell-btn" %>
+        <%=link_to 'もどる', root_path, class:"back-btn" %>
+      </div>
+    
+  <% end %>
+  </div>
+</div>
+
+
+
+
+<%= render "shared/footer" %>
