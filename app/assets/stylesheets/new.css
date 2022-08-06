@@ -1,0 +1,38 @@
+.items-sell-contents {
+  
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  min-width: 500px;
+}
+
+.fishing-main {
+  background-color: white;
+  width: 45vw;
+  
+}
+
+.fishing-imag {
+  display: flex;
+  justify-content: space-between;
+}
+
+.weight-bold-text {
+  font-weight: bold;
+  min-width: 170px;
+  margin-bottom: 10px;
+}
+
+.fishing-info {
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+  color: red;
+  padding: 30px 0;
+}
+
+.fish-date {
+  padding-top: 150px;
+  
+}

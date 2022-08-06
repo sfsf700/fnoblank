@@ -1,0 +1,55 @@
+.main {
+  background: white;
+}
+
+.title-contents {
+  height: 621px;
+  background-image: image-url('top.jpeg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding-top: 5vh;
+  padding-left: 80px; 
+}
+
+.service-title {
+  font-size: 10vh;
+  font-family: 'Quattrocento Sans', sans-serif;
+  color: white;
+  text-shadow: 0 0 5px aqua;
+}
+
+.service-explain {
+  font-size: 4vh;
+  font-family: 'Quattrocento Sans', sans-serif;
+  color: white;
+  text-shadow: 0 0 5px aqua;
+}
+
+.fishing-contents {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.fishing-img {
+  height: 33vh;
+  width: 33vh;
+}
+
+.fishing-news {
+  font-size: 4vh;
+  font-family: 'Quattrocento Sans', sans-serif;
+  color: aqua;
+  line-height: 80px;
+}
+
+.fishing-list {
+  width: 100vw;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.fish-list {
+  padding: 1vw;
+}
