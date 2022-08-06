@@ -17,6 +17,10 @@ class FishingsController < ApplicationController
     end
   end
 
+  def show
+    @fishing = Fishing.find(params[:id])
+  end
+
   private
 
   def fishing_params

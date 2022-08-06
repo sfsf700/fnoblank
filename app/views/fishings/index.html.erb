@@ -17,7 +17,7 @@
     <ul class="fishing-list">
       <% @fishings.each do |fishing| %>
       <li class='fish-list'>
-        <%= link_to "#" do %>
+        <%= link_to fishing_path(fishing) do %>
         <div class='fish-img-content'>
           <%= image_tag fishing.image, class: "fishing-img" if fishing.image.attached? %>
           <div class='fish-name-info'>

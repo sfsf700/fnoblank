@@ -2,7 +2,7 @@
   width: 100vw;
   height: 150px;
   display: flex;
-  background-color: aqua;
+  background: aqua;
   justify-content: center;
 }
 .new-page-content {
