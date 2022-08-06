@@ -1,0 +1,75 @@
+.show {
+  width: 100vw;
+  height: 100px;
+  background-color: white;
+}
+
+.fish-img-box {
+  width: 100vw;
+  height: 800px;
+  background-color: white;
+  display: flex;
+}
+
+.fish-show-img {
+  width: 60vw;
+  height: 800px;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+}
+
+.show-img {
+  width: 90vh;
+  height: 90vh;
+  padding-top: 9px;
+}
+
+.show-info {
+  width: 150px;
+  margin: 0 0 50px 5vh;
+  border-bottom: 1px solid;
+}
+
+h2 {
+  font-size: 30px;
+}
+
+.fish-show-content {
+  width: 40vw;
+}
+
+.detail-item {
+  padding: 0 12vh 15px 5vh;
+}
+
+.detail-value {
+  padding: 0 12vh 15px 5vh;
+} 
+
+.show-user-data {
+  width: 88vw;
+  
+  background-color: black;
+  border-top: 1px solid;
+  margin: 0 auto;
+}
+
+.user-data-box {
+  width: 88vw;
+  height: 200px;
+  background-color: aqua;
+  margin: 0% auto;
+}
+
+.fish-data-edit {
+  margin-top: 50px;
+  padding: 0 12vh 15px 5vh;
+}
+
+.data_btn {
+  text-decoration: none;
+  padding-right: 21vh;
+  color: lightskyblue;
+
+}
