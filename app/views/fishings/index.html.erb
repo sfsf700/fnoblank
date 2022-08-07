@@ -28,6 +28,18 @@
                 <%= fishing.name %><br>
                 <%= fishing.field.name %>
               </h3>
+              <td>
+                <% if current_user.already_favorited?(fishing) %>
+                  <%= link_to fishing_favorites_path(fishing), method: :delete do %>
+                    <i class="fas fa-heart"></i>
+                  <% end %>
+                <% else %>
+                  <%= link_to fishing_favorites_path(fishing), method: :post do %>
+                    <i class="far fa-heart"></i>
+                  <% end %>
+                <% end %>
+                <%= fishing.favorites.count %>
+              </td>
             </div> 
           </div>
         </div>
