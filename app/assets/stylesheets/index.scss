@@ -65,3 +65,18 @@ a {
   font-size: 12px;
   color: black;
 }
+
+.item-name {
+  display: flex;
+  justify-content: space-between;
+}
+
+.favorite {
+  color: palevioletred;
+  font-size: 12px;
+}
+
+.heart {
+  color: palevioletred;
+  font-size: 12px;
+}
