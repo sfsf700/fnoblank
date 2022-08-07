@@ -36,8 +36,14 @@ class FishingsController < ApplicationController
     end
   end
 
-  def destory
-
+  def destroy
+    @fishing = Fishing.find(params[:id])
+    if @fishing.user_id == current_user.id 
+      @fishing.destroy
+      redirect_to root_path
+    else
+      redirect_to root_path
+    end
   end
 
   private
