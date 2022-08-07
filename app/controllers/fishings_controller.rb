@@ -1,4 +1,5 @@
 class FishingsController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
 
   def index
     @fishings = Fishing.includes(:user).order('created_at DESC')
@@ -19,6 +20,24 @@ class FishingsController < ApplicationController
 
   def show
     @fishing = Fishing.find(params[:id])
+  end
+
+  def edit
+    @fishing = Fishing.find(params[:id])
+  end
+
+  def update
+    @fishing = Fishing.find(params[:id])
+    @fishing.update(fishing_params)
+    if @fishing.valid?
+      redirect_to fishing_path(fishing_params)
+    else
+      render :edit
+    end
+  end
+
+  def destory
+
   end
 
   private

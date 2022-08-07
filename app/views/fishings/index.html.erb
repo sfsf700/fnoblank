@@ -21,13 +21,15 @@
         <div class='fish-img-content'>
           <%= image_tag fishing.image, class: "fishing-img" if fishing.image.attached? %>
           <div class='fish-name-info'>
-            <h3 class='item-name'>
-              <%= fishing.name %>
-            </h3>
-              <div class='item-price'>
-                <%= fishing.field.name %><br><%= fishing.day %>
-              </div>
-          </div>  
+            <div class='item-name'>
+              <h3>  
+                <%= fishing.user.nickname %><br>
+                <%= fishing.day %><br>
+                <%= fishing.name %><br>
+                <%= fishing.field.name %>
+              </h3>
+            </div> 
+          </div>
         </div>
       <% end %>
       </li>
