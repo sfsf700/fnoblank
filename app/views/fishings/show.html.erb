@@ -59,7 +59,7 @@
       <div class="fish-data-edit">
         <% if user_signed_in? && current_user.id == @fishing.user_id %>
             <%= link_to "編集", edit_fishing_path, class: :data_btn %>
-            <%= link_to "削除", "#", method: :delete, class: :data_btn %>
+            <%= link_to "削除", "/fishings/#{@fishing.id}", method: :delete, class: :data_btn %>
         <% end %>
         
       </div>
