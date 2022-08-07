@@ -59,8 +59,8 @@
           </div>
           <%= f.collection_select(:field_id, Field.all, :id, :name, {}, {class:"fishing-box-area", id:"item-category"}) %>
           <div class="sell-btn-contents">
-            <%= f.submit "投稿する", class:"new-up-btn" %>
-            <%=link_to 'やめる', root_path, class:"back-btn" %>
+            <%= f.submit "変更する", class:"new-up-btn" %>
+            <%=link_to 'やめる', fishing_path(@fishing), class:"back-btn" %>
           </div>
         </div>
       </div>
