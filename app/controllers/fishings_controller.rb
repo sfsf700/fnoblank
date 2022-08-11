@@ -1,5 +1,5 @@
 class FishingsController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, only: [:create, :edit, :update, :new, :destroy]
 
   def index
     @fishings = Fishing.includes(:user).order('created_at DESC')
@@ -12,7 +12,7 @@ class FishingsController < ApplicationController
   def create
     @fishing = Fishing.create(fishing_params)
     if @fishing.save
-      redirect_to root_path
+      redirect_to fishings_path(@fishing)
     else
       render new
     end
@@ -20,6 +20,8 @@ class FishingsController < ApplicationController
 
   def show
     @fishing = Fishing.find(params[:id])
+    @comments = @fishing.comments.includes(:user)
+    @comment = Comment.new
   end
 
   def edit

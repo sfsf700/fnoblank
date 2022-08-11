@@ -5,7 +5,7 @@
     <div class='nav'>
     <ul class='lists-right'>
     <% if user_signed_in? %>
-      <%= link_to '投稿する', new_fishing_path, class: "new-post" %>
+      <li><%= link_to '投稿する', new_fishing_path, class: "new-post" %></li>
       <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %></li>
     <% else %>
       <li><%= link_to 'ログイン', "#", class: "login" %></li>
@@ -31,7 +31,7 @@
         <tbody>
           <tr>
             <th class="detail-item">釣れた日</th>
-            <td class="detail-value"><%= @fishing.day %></td>
+            <td class="detail-value"><%= @fishing.day.strftime('%Y/%m/%d') %></td>
           </tr>
           <tr>
             <th class="detail-item">魚種</th>
@@ -66,9 +66,31 @@
     </div>
   </div>
   <div class="show-user-data">
+    <div class="comment-form">
+      <% if user_signed_in? %>
+        <span class="user__nickname"><%= @fishing.user.nickname %></span>さんにコメントをしみよう！
+        <%= form_with model: [@fishing, @comment], id: "comment-form" do |f| %>
+          <%= f.text_area :text , class: "comment-text"%>
+          <%= f.submit "送信", class: "comment-submit" %>
+        <% end %>
+      <% else %>
+        <div class="login-comment">
+          <%= link_to "ログインしてコメントをする", new_user_registration_path, class: :login__btn__comment %>
+        </div>
+      <% end %>
+    </div>
   </div>
-  <div class="user-data-box">
+  <div class="user-comment-box">
     <%#後でlink toを入れる%>
-    <%= @fishing.user.nickname %>さんの最近の釣果 
+    <span class="users-comment">みんなのコメント</span>
+    <div id="comments">
+      <% @fishing.comments.each do |comment| %>
+        <div class="comment">
+          <p class="user-comment-info"><%= comment.user.nickname %>：<%= l comment.created_at %> </p>
+          <p><%= comment.text%></p>
+        </div>
+      <% end %>
+    </div>
+ 
   </div>
 
