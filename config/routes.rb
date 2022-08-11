@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to:'fishings#index'
   resources :fishings do
     resources :comments, only: :create
-    resources :favorites, only: [:create, :destroy]
+    resource :favorites, only: [:create, :destroy]
   end
 
 end

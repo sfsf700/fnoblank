@@ -61,7 +61,22 @@
             <%= link_to "編集", edit_fishing_path, class: :data_btn %>
             <%= link_to "削除", "/fishings/#{@fishing.id}", method: :delete, class: :data_btn %>
         <% end %>
-        
+        <% if user_signed_in? %>
+          <div class="favorite-show">
+             <td>
+              <% if current_user.already_favorited?(@fishing) %>
+                <%= link_to fishing_favorites_path(@fishing), class: "heart-show", method: :delete do %>
+                  <i class="fas fa-heart"></i>
+                <% end %>
+              <% else %>
+                <%= link_to fishing_favorites_path(@fishing), class: "heart-show", method: :post do %>
+                  <i class="far fa-heart"></i>
+                <% end %>
+              <% end%>
+              <%= @fishing.favorites.count %>
+            </td>
+           </div>
+        <% end %>
       </div>
     </div>
   </div>
