@@ -2,6 +2,11 @@
   <div class='new-page-content'>
     <%= link_to image_tag("blank.png", class:"blank-icon"), "/" %>
   </div>
+  <div class='nav'>
+    <ul class='lists-right'>
+      <li><%= link_to 'すでに会員の方はこちらからログイン', user_session_path, class: "login" %></li>
+    </ul>
+  </div>
 </header>
   
 <%= form_with model: @user, url: user_registration_path, class: 'registration-main', local: true do |f| %>

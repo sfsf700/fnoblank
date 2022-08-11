@@ -2,12 +2,17 @@
   <div class='new-page-content'>
     <%= link_to image_tag("blank.png", class:"blank-icon"), "/" %>
   </div>
+    <div class='nav'>
+    <ul class='lists-right'>
+      <li><%= link_to '新規登録はこちらから', new_user_registration_path, class: "login" %></li>
+    </ul>
+  </div>
 </header>
 <%= form_with model: resource, as: resource_name, url: session_path(resource_name), class: 'registration-main', local: true do |f| %>
 <div class='form-wrap'>
   <div class='form-header'>
     <h1 class='form-header-text'>
-      会員情報入力
+      ログイン
     </h1>
   </div>
   <div class='login-flash-message'>
