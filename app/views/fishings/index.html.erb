@@ -15,7 +15,7 @@
       新着釣果情報
     </div>
     <ul class="fishing-list">
-      <% @fishings.each do |fishing| %>
+    <% @fishings.each do |fishing| %>
       <li class='fish-list'>
         <%= link_to fishing_path(fishing) do %>
         <div class='fish-img-content'>
@@ -25,32 +25,36 @@
               <div>
                 <h3>  
                   <%= fishing.user.nickname %><br>
-                  <%= fishing.day %><br>
+                  <%= fishing.day.strftime('%Y/%m/%d') %><br>
                   <%= fishing.name %><br>
+                  <%= fishing.size %>センチ<br>
+                  <%= fishing.count %>匹<br>
                   <%= fishing.field.name %>
                 </h3>
               </div>
-              <div class="favorite">
-                <td>
-                  <% if current_user.already_favorited?(fishing) %>
-                    <%= link_to fishing_favorites_path(fishing), class: "heart", method: :delete do %>
-                      <i class="fas fa-heart"></i>
-                    <% end %>
-                  <% else %>
-                    <%= link_to fishing_favorites_path(fishing), class: "heart", method: :post do %>
-                      <i class="far fa-heart"></i>
-                    <% end %>
-                  <% end %>
-                  <%= fishing.favorites.count %>
-                </td>
-              </div>
+              <% if user_signed_in? %>
+                <div class="favorite">
+                  <td>
+                    <% if current_user.already_favorited?(fishing) %>
+                      <%= link_to fishing_favorites_path(fishing), class: "heart", method: :delete do %>
+                        <i class="fas fa-heart"></i>
+                      <% end %>
+                    <% else %>
+                      <%= link_to fishing_favorites_path(fishing), class: "heart", method: :post do %>
+                        <i class="far fa-heart"></i>
+                      <% end %>
+                    <% end%>
+                    <%= fishing.favorites.count %>
+                  </td>
+                </div>
+              <% end %>
             </div> 
           </div>
         </div>
       <% end %>
       </li>
-    <% end %>
     </ul>  
+    <% end %>
   </div>
 </div>
 <%= render "shared/footer" %>

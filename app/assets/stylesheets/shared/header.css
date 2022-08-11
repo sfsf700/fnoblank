@@ -2,7 +2,7 @@
   width: 100vw;
   height: 150px;
   display: flex;
-  background-color: aqua;
+  background-color: white;
   justify-content: space-between;
 }
 .top-page-content {
@@ -31,7 +31,6 @@
 .user-nickname {
   font-size: 20px;
   text-decoration: none;
-  margin-right: 3vw;
   color: #333333;
   font-weight: bold;
 }
@@ -41,6 +40,10 @@
   font-size: 20px;
   text-decoration: none;
   color: #333333;
+  padding: 10px;
+  border-radius: 4px;
+  color: lightskyblue;
+  border: 1px solid;
 }
 
 .login {
@@ -49,14 +52,30 @@
   line-height: 32px;
   margin-right: 3vw;
   color: #333333;
+  padding: 10px;
+  border-radius: 4px;
+  color: lightskyblue;
+  border: 1px solid;
 }
 
 .sign-up {
   font-size: 20px;
   text-decoration: none;
   color: #333333;
+  padding: 10px;
+  border-radius: 4px;
+  color: lightskyblue;
+  border: 1px solid;
 }
 
 .new-post {
   font-size: 20px;
+  padding: 10px;
+  border-radius: 4px;
+  color: lightskyblue;
+  border: 1px solid;
+}
+
+li {
+  padding: 10px;
 }

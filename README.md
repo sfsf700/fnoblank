@@ -37,7 +37,7 @@ https://docs.google.com/spreadsheets/d/1swVM35dnB6zxyfvo4CL1A_YW3XE94b_FQLN888SM
 ## Association
  has_many :fishings, dependent: :destroy
  has_many :comments
- has_many :favorite
+ has_many :favorites
 
 ##  fishingsテーブル
 
@@ -54,14 +54,14 @@ https://docs.google.com/spreadsheets/d/1swVM35dnB6zxyfvo4CL1A_YW3XE94b_FQLN888SM
 ## Association
  belongs_to :user
  has_many :comments
- has_many :favorite
+ has_many :favorites
  
 
 ## comments テーブル
 
 | Column        | Type       | Options                        |
 | ------------- | ---------- | ------------------------------ |
-| text          | string     | null: false                    |
+| text          | text     | null: false                    |
 | user          | references | null: false, foreign_key: true |
 | fishing       | references | null: false, foreign_key: true |
 
@@ -82,4 +82,4 @@ belongs_to :user
 belongs_to :fishing
 
 # 開発環境
-ruby/rails/html、css/
+ruby/rails/html、css/JavaScript

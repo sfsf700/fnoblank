@@ -3,6 +3,8 @@ class User < ApplicationRecord
   belongs_to :field
   belongs_to :history
   has_many :favorites, dependent: :destroy
+  has_many :fishings, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
