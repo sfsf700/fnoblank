@@ -1,0 +1,70 @@
+<header class='new-page-header'>
+  <div class='new-page-content'>
+    <%= link_to image_tag("blank.png", class:"blank-icon"), "/" %>
+  </div>
+  <div class='nav'>
+    <ul class='flash-right'>
+      <li><%= flash[:notice] %></li>
+    </ul>
+  </div>
+</header>
+
+<%= form_with model: current_user, class: 'registration-main', local: true do |f| %>
+<div class='form-wrap'>
+  <div class= 'form-header'>
+    <h2 class= 'form-header-text'>
+    会員情報編集
+  </div>
+
+  <div class="form-group">
+    <div class='form-text-wrap'>
+      <label class="form-text">ニックネーム</label>
+      <span class="indispensable">必須</span>
+    </div>
+    <%= f.text_area :nickname, class:"input-default", id:"nickname", placeholder:"例) 釣り太郎", maxlength:"20" %>
+  </div>
+
+  <div class="form-group">
+    <div class='form-text-wrap'>
+      <label class="form-text">email</label>
+      <span class="indispensable">必須</span>
+    </div>
+    <%= f.email_field :email, class:"input-default", id:"email", placeholder:"PC・携帯どちらでも可", autofocus: true %>
+  </div>
+
+ 
+  <div class="form-group">
+    <div class='form-text-wrap'>
+      <label class="form-text">プロフィール</label>
+      <span class="indispensable">必須</span>
+    </div>
+    <%= f.text_area :profile, class:"input-profile", id:"profile", placeholder:"例) イカ釣りばかりやってますが、他にも興味あります！よろしくお願いします！" %> 
+  </div>
+
+  <div class="form-group">
+    <div class='form-text-wrap'>
+      <label class="form-text">釣り歴</label>
+      <span class="indispensable">必須</span>
+    </div>
+      <%= f.collection_select(:history_id, History.all, :id, :name, {}, {class:"set-box", id:"user_history"}) %>
+  </div>
+  <div class="form-group">
+    <div class='form-text-wrap'>
+      <label class="form-text">メインフィールド</label>
+    </div>
+    <%= f.collection_select(:field_id, Field.all, :id, :name, {}, {class:"set-box", id:"user_field"}) %>
+  </div>
+
+  <div class="form-group">
+    <div class='form-text-wrap'>
+      <label class="form-text">メインの魚</label>
+    </div>
+    <%= f.text_field :fish_name, class:"input-default", id:"fish_name", placeholder:"例) イカ、メバル" %>
+  </div>
+
+  <div class='register-btn'>
+    <%= f.submit "更新" ,class:"register-red-btn" %>
+  </div>
+</div>
+<% end %>
+<%= render "shared/footer" %>

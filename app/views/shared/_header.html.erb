@@ -4,8 +4,8 @@
   </div>
   <div class='nav'>
     <ul class='lists-right'>
-    <% if user_signed_in? %>
-      <li><%= link_to current_user.nickname, edit_user_registration_path, class: "user-nickname" %>さん</li>
+    <% if user_signed_in?  %>
+      <li><%= link_to current_user.nickname, edit_user_path(current_user), class: "user-nickname" %>さん</li>
       <li><%= link_to '投稿する', new_fishing_path, class: "new-post" %></li>
       <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %></li>
     <% else %>
