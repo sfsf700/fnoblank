@@ -134,3 +134,11 @@
   text-align: center;
   color: red;
 }
+
+.flash-right {
+  padding: 10px;
+  color: lightskyblue;
+  position: relative;
+  right: 605px;
+  top: 50px
+}
