@@ -83,7 +83,7 @@
   <div class="show-user-data">
     <div class="comment-form">
       <% if user_signed_in? %>
-        <span class="user__nickname"><%= @fishing.user.nickname %></span>さんにコメントをしみよう！
+        <%= link_to @fishing.user.nickname, user_path(@fishing.user.id), class: :user__nickname %>さんにコメントをしみよう！
         <%= form_with model: [@fishing, @comment], id: "comment-form" do |f| %>
           <%= f.text_area :text , class: "comment-text"%>
           <%= f.submit "送信", class: "comment-submit" %>

@@ -1,0 +1,60 @@
+<header class='new-page-header'>
+  <div class='new-page-content'>
+    <%= link_to image_tag("blank.png", class:"blank-icon"), "/" %>
+  </div>
+</header>
+
+<div class="user_show_main">
+  <div class="detail-box">
+    <div claaa="detail-left">
+      <div class="detail-nickname">
+        <%= @user.nickname %>
+      </div>
+      <div class="detail-profile">
+        <%= @user.profile %>
+      </div>
+    </div>
+    <div class="detail-right">
+      <table class="detail-user_table">
+        <tbody>
+          <tr>
+            <th class="detail-user_item">釣り歴</th>
+            <td class="detail-user_value"><%= @user.history.name %></td>
+          </tr>
+          <tr>
+            <th class="detail-user_item">メインフィールド</th>
+            <td class="detail-user_value"><%= @user.field.name %></td>
+          </tr>
+          <tr>
+            <th class="detail-user_item">メインの魚</th>
+            <td class="detail-user_value"><%= @user.fish_name %></td>
+          </tr>
+          <tr>
+            <% if user_signed_in? && current_user.id == @user.id %>
+              <th class="detail-user_item"><%= link_to "編集", edit_user_path, class: :user__edit_btn %></th>
+            <% end %>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div>
+    <ul class="fishing-list">
+      <% @user.fishings.each do |fishing| %>
+        <li class='fish-list_show'>
+          <div class="show__box">
+            <%= image_tag fishing.image, class: "fishing-img" if fishing.image.attached? %><br>
+            <%= fishing.day.strftime('%Y/%m/%d') %><br>
+            <%= fishing.name %><br>
+            <%= fishing.size %>センチ<br>
+            <%= fishing.count %>匹<br>
+            <%= fishing.field.name %>
+          </div>
+        </li>
+      <% end %>
+    </ul> 
+  </div>
+</div>
+
+<%= render 'shared/footer' %>
