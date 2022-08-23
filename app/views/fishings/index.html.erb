@@ -51,8 +51,14 @@
             </div> 
           </div>
         </div>
+        <% end %>
       <% end %>
       </li>
+    <% if @fishings.blank? %>
+      <li class='blank-fish'>
+        <%= image_tag "blankblank", class: "blank-img" %>
+      </li>
+   
     <% end %>
     </ul>  
   </div>
