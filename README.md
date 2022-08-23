@@ -1,6 +1,7 @@
 # README
 # アプリケーション名
 FnoBlank(エフノーブランク)
+※Fはfihshingの頭文字
 # このアプリでできること
 ・釣った魚を投稿できる
 ・魚の名前やサイズなどを入力できて、釣果情報が共有できる
@@ -11,11 +12,11 @@ FnoBlank(エフノーブランク)
 https://github.com/sfsf700/fnoblank
 
 # アプリケーションを作成した背景
-①自分が釣りが好きであること。
-②釣果を記録する術がなかった。
-③どこでどんな魚が釣れるか知りたいため、いろんな人から情報を仕入れたかった。
-④１匹の魚を釣るにしても色んな道具や方法があるが、自分の知らないやり方を知りたくなった。
-⑤コメント機能を実装することで、他のanglerとコミュニケーションをとってみたかった。
+①自分が釣りが好きで、同じ釣り好きの方との交流の場が欲しいと思いました。
+②詳細な釣果を記録することを簡単にやりたいと考えました。
+③どこでどんな魚が釣れるか知りたいため、いろんな人から情報を仕入たいと思いました。
+④１匹の魚を釣るにしても色んな道具や方法がありますが、自分の知らない釣り方を知りたくなりました。
+⑤コメント機能を実装することで、他のanglerとコミュニケーションをとってみたいと思いました。
 
 # 洗い出した要件
 https://docs.google.com/spreadsheets/d/1swVM35dnB6zxyfvo4CL1A_YW3XE94b_FQLN888SM-8c/edit#gid=982722306
@@ -35,9 +36,9 @@ https://docs.google.com/spreadsheets/d/1swVM35dnB6zxyfvo4CL1A_YW3XE94b_FQLN888SM
 | fish_name          | string  |                           |
 
 ## Association
- has_many :fishings, dependent: :destroy
- has_many :comments
- has_many :favorites
+has_many :fishings, dependent: :destroy
+has_many :comments
+has_many :favorites
 
 ##  fishingsテーブル
 
@@ -52,9 +53,9 @@ https://docs.google.com/spreadsheets/d/1swVM35dnB6zxyfvo4CL1A_YW3XE94b_FQLN888SM
 | user        | references | null: false, foreign_key: true |
 
 ## Association
- belongs_to :user
- has_many :comments
- has_many :favorites
+belongs_to :user
+has_many :comments
+has_many :favorites
  
 
 ## comments テーブル
