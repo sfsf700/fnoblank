@@ -83,3 +83,21 @@ a {
   color: palevioletred;
   font-size: 12px;
 }
+
+.external_icon_box {
+  width: 100%;
+}
+
+.external_icons {
+  display: flex;
+  justify-content: flex-start;
+  margin-left: 15px;
+}
+
+.social {
+  padding: 10px;
+}
+.fa-brands {
+  font-size: 24px;
+  color: rgb(60, 112, 235);
+}
